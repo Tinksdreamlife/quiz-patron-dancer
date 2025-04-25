@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    /* viewport units: vh (viewport height), vw, vmin (smallest between vh & vw) */
+    height: 100vh;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* header {
+    font-size: 4vmin;
+    color: darkgrey;
+    letter-spacing: 1vmin;
+  } */
+  
+  h1 {
+    color: rgb(172, 27, 107);
+    font-size: 10vmin;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  h2 {
+    color: rgb(125, 47, 90);
+    font-size: 5vmin;
+    padding: 5px;
+    margin: 0px;
+    border-bottom-style: double;
+  }
