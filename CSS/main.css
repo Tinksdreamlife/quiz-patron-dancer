@@ -21,15 +21,24 @@
   
   h1 {
     color: rgb(172, 27, 107);
-    font-size: 10vmin;
+    font-size: 12vmin;
+    text-align: center;
     padding: 0px;
     margin: 0px;
   }
 
   h2 {
     color: rgb(125, 47, 90);
-    font-size: 5vmin;
+    font-size: 6vmin;
     padding: 5px;
     margin: 0px;
+    border-top-style: double;
     border-bottom-style: double;
+  }
+
+  h3 {
+    color: rgb(243, 103, 180);
+    font-size: 6vmin;
+    font-stretch: semi-expanded;
+    
   }
