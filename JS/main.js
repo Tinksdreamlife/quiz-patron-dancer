@@ -23,12 +23,20 @@ let playerAnswer; //index of the answer the player has chosen
 
   /*----- cached elements  -----*/
   
+  const player1Button = document.getElementById('player1');
+  const player2Button = document.getElementById('player2');
 //   patronQues[ques1, ques2, ques3, ques4]; - waiting on Jim to review
 //   dancerQues[ques1, ques2, ques3, ques4];
 
   /*----- event listeners -----*/
 
+  player1Button.addEventListener('click' handleplayer1Button() {
+
+  }) //I need this to do something like choose the question path
   
+  player2Button.addEventListener('click' handleplayer2Button() {
+
+  }) //I need this to do something like choose the question path
   /*----- functions -----*/
 
    init(); //init's function's purpose is initialize all state, then call render()
@@ -84,7 +92,7 @@ let playerAnswer; //index of the answer the player has chosen
 
     patronQues = [
         {
-          question: 'Patrons should tip dancers.', //Text of question 1'
+          question: 'Patrons are required to tip dancers.', //Text of question 1'
           answers: ['True', 'False'],
           correctAnswer: 0 // index of 'Answer 1'
           //How do I add a "response" to give a piece of advice with the answer?
@@ -92,7 +100,7 @@ let playerAnswer; //index of the answer the player has chosen
                              // click an answer when this is the current question
         },
         {
-          question: 'A patron must dress up to enter a club', //Text of question 2
+          question: 'Dancers must offer all club services to all club patrons', //Text of question 2
           answers: ['True', 'False'],
           correctAnswer: 1 // index of 'Another Answer 2'
           //How do I add a "response" to give a piece of advice with the answer?
@@ -100,7 +108,7 @@ let playerAnswer; //index of the answer the player has chosen
                              // click an answer when this is the current question
         },
         {
-          question: 'You must be rich to visit a club', //Text of question 3
+          question: 'You must have a “great” body to be a dancer.', //Text of question 3
           answers: ['True', 'False'],
           correctAnswer: 1 // index of 'Another Answer 3'
           //How do I add a "response" to give a piece of advice with the answer?
@@ -108,7 +116,7 @@ let playerAnswer; //index of the answer the player has chosen
                              // click an answer when this is the current question
         },
         {
-          question: 'A dancer WANTS to come home with you.', //Text of question 4
+          question: 'There is not much room for professional growth as a dancer.', //Text of question 4
           answers: ['True', 'False'],
           correctAnswer: 1 // index of 'Another Answer 4'
           //How do I add a "response" to give a piece of advice with the answer?

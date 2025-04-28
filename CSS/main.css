@@ -44,12 +44,12 @@
 
 .playerChoiceButton {
     display: inline-block; 
-    justify-content: center;
     /* why isn't this moving them side by side? */
     background-color: pink;
     color: white;
     font-size: 30px;
-    padding: 10px 20 px;
+    padding: 10px 20px;
+    margin: 15px;
     /* border: black; */
     cursor: pointer;
   }
