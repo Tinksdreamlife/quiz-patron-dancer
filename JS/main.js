@@ -17,18 +17,88 @@ let winner; // TBD whether this is a one player at a time
 let turn; // patron/dancer -> the player whose turn it is
 let handle;
 let questionArray; //be the questions set the player gets whether patron or dancer
-let patronQues; //for an array of patron questions
-let dancerQues; // for an array of dancer questions
+let patronQues =[
+  {
+    question: 'Patrons should tip dancers.', //Text of question 1'
+    answers: ['True', 'False'],
+    correctAnswer: 0, // index of 'Answer 1'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null, // this is the property you update when they
+                       // click an answer when this is the current question
+  },
+  {
+    question: 'A patron must dress up to enter a club', //Text of question 2
+    answers: ['True', 'False'],
+    correctAnswer: 1, // index of 'Another Answer 2'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null, // this is the property you update when they
+                       // click an answer when this is the current question
+  },
+  {
+    question: 'You must be rich to visit a club', //Text of question 3
+    answers: ['True', 'False'],
+    correctAnswer: 1, // index of 'Another Answer 3'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null, // this is the property you update when they
+                       // click an answer when this is the current question
+  },
+  {
+    question: 'A dancer WANTS to come home with you.', //Text of question 4
+    answers: ['True', 'False'],
+    correctAnswer: 1, // index of 'Another Answer 4'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null, // this is the property you update when they
+                       // click an answer when this is the current question
+  },
+];
+
+let dancerQues =[
+  {
+    question: 'Patrons are required to tip dancers.', //Text of question 1'
+    answers: ['True', 'False'],
+    correctAnswer: 0, // index of 'Answer 1'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null // this is the property you update when they
+                       // click an answer when this is the current question
+  },
+  {
+    question: 'Dancers must offer all club services to all club patrons', //Text of question 2
+    answers: ['True', 'False'],
+    correctAnswer: 1, // index of 'Another Answer 2'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null // this is the property you update when they
+                       // click an answer when this is the current question
+  },
+  {
+    question: 'You must have a “great” body to be a dancer.', //Text of question 3
+    answers: ['True', 'False'],
+    correctAnswer: 1, // index of 'Another Answer 3'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null // this is the property you update when they
+                       // click an answer when this is the current question
+  },
+  {
+    question: 'There is not much room for professional growth as a dancer.', //Text of question 4
+    answers: ['True', 'False'],
+    correctAnswer: 1, // index of 'Another Answer 4'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null // this is the property you update when they
+                       // click an answer when this is the current question
+  },
+];
+
+
 let curQuestions = []; //the actual questions the player is on
 let curQuestionIdx = 0; //for an index of the current question
 let correctAnswer; //index of the correct answer in the array
-let showQuestion; // be available to display the next question
+// let showQuestion; // be available to display the next question
 let playerAnswer = null; //index of the answer the player has chosen
 
   /*----- cached elements  -----*/
   
   const player1Button = document.getElementById('player1');
   const player2Button = document.getElementById('player2');
+  console.log(player1Button);
 //   patronQues[ques1, ques2, ques3, ques4]; - waiting on Jim to review
 //   dancerQues[ques1, ques2, ques3, ques4];
 
@@ -47,16 +117,15 @@ let playerAnswer = null; //index of the answer the player has chosen
    init(); //init's function's purpose is initialize all state, then call render()
 
    function init() {
-
+      curQuestionIdx = 0;
+      curQuestions=[];
     //How do I write that these are the questions if the player chose
     //player1 which is the patron?
-
-   
    }
 
    function handlePlayerChoice(questionArray) {
+    console.log('handlePlayerChoice');
     curQuestions = questionArray;
-    curQuestionIdx = 0
     showQuestion();
     player1Button.disabled = true;
     player2Button.disabled = true;
@@ -66,101 +135,30 @@ let playerAnswer = null; //index of the answer the player has chosen
    function showQuestion() {
     const quizArea = document.getElementById('quiz-area'); 
     // NB: Points to the area I already set up in HTML
-    const curQuestions = curQuestions[curQuestionIdx]; 
-
-    quizArea.innerHTML = 
-      <h3>
-        ${curQuestions.question}
-        <button onclick="selectAnswer(0)"></button>
-        <button onclick="selectAnswer(1)"></button>
-      </h3>
+    const curQuestion = curQuestions[curQuestionIdx]; 
+  
+    quizArea.innerHTML = `<h3>
+        ${curQuestion.question}
+        <button onclick="selectAnswer(0)">${curQuestion.answers[0]}</button>
+        <button onclick="selectAnswer(1)">${curQuestion.answers[1]}</button>
+      </h3>`
    }
    
-    patronQues = [
-      {
-        question: 'Patrons should tip dancers.', //Text of question 1'
-        answers: ['True', 'False'],
-        correctAnswer: 0, // index of 'Answer 1'
-        //How do I add a "response" to give a piece of advice with the answer?
-        playerAnswer: null, // this is the property you update when they
-                           // click an answer when this is the current question
-      },
-      {
-        question: 'A patron must dress up to enter a club', //Text of question 2
-        answers: ['True', 'False'],
-        correctAnswer: 1, // index of 'Another Answer 2'
-        //How do I add a "response" to give a piece of advice with the answer?
-        playerAnswer: null, // this is the property you update when they
-                           // click an answer when this is the current question
-      },
-      {
-        question: 'You must be rich to visit a club', //Text of question 3
-        answers: ['True', 'False'],
-        correctAnswer: 1, // index of 'Another Answer 3'
-        //How do I add a "response" to give a piece of advice with the answer?
-        playerAnswer: null, // this is the property you update when they
-                           // click an answer when this is the current question
-      },
-      {
-        question: 'A dancer WANTS to come home with you.', //Text of question 4
-        answers: ['True', 'False'],
-        correctAnswer: 1, // index of 'Another Answer 4'
-        //How do I add a "response" to give a piece of advice with the answer?
-        playerAnswer: null, // this is the property you update when they
-                           // click an answer when this is the current question
-      },
-    ];
-   
+   function selectAnswer(answerIdx) {
+    if (curQuestions[curQuestionIdx].correctAnswer === answerIdx){
+      console.log("Correct!");
+    } else {
+      console.log("Incorrect");
+    }
+   }
+
     // TODO: Initialize other state variables, e.g.,
-    curQuestionIdx = 0;
-    ...
-    ...
-    render();  // Always call render after state has been initialized/updated
-  }
+    // curQuestionIdx = 0;
+    // render();  // Always call render after state has been initialized/updated
+
 
   //How do I write that these are the questions if the player chose
     //player2which is the dancer?
-
-    dancerQues = [
-        {
-          question: 'Patrons are required to tip dancers.', //Text of question 1'
-          answers: ['True', 'False'],
-          correctAnswer: 0 // index of 'Answer 1'
-          //How do I add a "response" to give a piece of advice with the answer?
-          playerAnswer: null // this is the property you update when they
-                             // click an answer when this is the current question
-        },
-        {
-          question: 'Dancers must offer all club services to all club patrons', //Text of question 2
-          answers: ['True', 'False'],
-          correctAnswer: 1 // index of 'Another Answer 2'
-          //How do I add a "response" to give a piece of advice with the answer?
-          playerAnswer: null // this is the property you update when they
-                             // click an answer when this is the current question
-        },
-        {
-          question: 'You must have a “great” body to be a dancer.', //Text of question 3
-          answers: ['True', 'False'],
-          correctAnswer: 1 // index of 'Another Answer 3'
-          //How do I add a "response" to give a piece of advice with the answer?
-          playerAnswer: null // this is the property you update when they
-                             // click an answer when this is the current question
-        },
-        {
-          question: 'There is not much room for professional growth as a dancer.', //Text of question 4
-          answers: ['True', 'False'],
-          correctAnswer: 1 // index of 'Another Answer 4'
-          //How do I add a "response" to give a piece of advice with the answer?
-          playerAnswer: null // this is the property you update when they
-                             // click an answer when this is the current question
-        },
-      ];
-      // TODO: Initialize other state variables, e.g.,
-      curQuestionIdx = 0;
-      ...
-      ...
-      render();  // Always call render after state has been initialized/updated
-    }
 
   /*----- Levels for Patron -----*/
  
