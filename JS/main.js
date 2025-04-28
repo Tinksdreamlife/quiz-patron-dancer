@@ -15,6 +15,7 @@ let winner; // TBD whether this is a one player at a time
 // game or if players are against each other for knowledge
 // null -> no winner or tie, game is in progress; patron/dancer -> the player the won; 'Tie' - > the game is tied
 let turn; // patron/dancer -> the player whose turn it is
+let handle;
 let questionArray; //be the questions set the player gets whether patron or dancer
 let patronQues; //for an array of patron questions
 let dancerQues; // for an array of dancer questions
@@ -34,12 +35,12 @@ let playerAnswer = null; //index of the answer the player has chosen
   /*----- event listeners -----*/
 
   player1Button.addEventListener('click', function() {
-    handle.player1Button(patronQues); 
-  }) //I need this to do something like choose the question path
+    handlePlayerChoice(patronQues); 
+  }); //I need this to do something like choose the question path
   
   player2Button.addEventListener('click', function() {
-    handle.player2Button(dancerQues); 
-  })
+    handlePlayerChoice(dancerQues); 
+  });
 
   /*----- functions -----*/
 
@@ -50,6 +51,9 @@ let playerAnswer = null; //index of the answer the player has chosen
     //How do I write that these are the questions if the player chose
     //player1 which is the patron?
 
+   
+   }
+
    function handlePlayerChoice(questionArray) {
     curQuestions = questionArray;
     curQuestionIdx = 0
@@ -57,6 +61,19 @@ let playerAnswer = null; //index of the answer the player has chosen
     player1Button.disabled = true;
     player2Button.disabled = true;
     //looked up how to disable the buttons after clicking them
+   };
+
+   function showQuestion() {
+    const quizArea = document.getElementById('quiz-area'); 
+    // NB: Points to the area I already set up in HTML
+    const curQuestions = curQuestions[curQuestionIdx]; 
+
+    quizArea.innerHTML = 
+      <h3>
+        ${curQuestions.question}
+        <button onclick="selectAnswer(0)"></button>
+        <button onclick="selectAnswer(1)"></button>
+      </h3>
    }
    
     patronQues = [
@@ -104,7 +121,7 @@ let playerAnswer = null; //index of the answer the player has chosen
   //How do I write that these are the questions if the player chose
     //player2which is the dancer?
 
-    patronQues = [
+    dancerQues = [
         {
           question: 'Patrons are required to tip dancers.', //Text of question 1'
           answers: ['True', 'False'],
