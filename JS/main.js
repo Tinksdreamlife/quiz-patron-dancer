@@ -99,6 +99,14 @@ let playerAnswer = null; //index of the answer the player has chosen
   const player1Button = document.getElementById('player1');
   const player2Button = document.getElementById('player2');
   console.log(player1Button);
+
+  const playerChoiceSelection = document.getElementById('player');
+  const quizArea = document.getElementById('quiz-area');
+  const header3 = document.querySelector('h3'); 
+  // added the three const above to try and get sections to work which will replace
+  //the choose your player with a new message once the player is chosen
+
+
 //   patronQues[ques1, ques2, ques3, ques4]; - waiting on Jim to review
 //   dancerQues[ques1, ques2, ques3, ques4];
 
@@ -123,8 +131,16 @@ let playerAnswer = null; //index of the answer the player has chosen
     //player1 which is the patron?
    }
 
-   function handlePlayerChoice(questionArray) {
+   function handlePlayerChoice(questionArray, playerName) {
     console.log('handlePlayerChoice');
+    playerChoiceSelection.style.display = 'none'; //this is supposed to hide the buttons
+    header3.style.display = 'none'; //supposed to hide the "choose your player" instructions
+
+    const message = document.createElement('h3'); //just learned that create Element adds something
+    //new to the existing section
+    message.textContent = '${playerName}';
+    quizArea.appendChild(message); //makes a new element in the existing structure
+      
     curQuestions = questionArray;
     showQuestion();
     player1Button.disabled = true;
