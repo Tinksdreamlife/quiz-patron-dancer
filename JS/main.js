@@ -30,11 +30,11 @@ let playerAnswer; //index of the answer the player has chosen
 
   /*----- event listeners -----*/
 
-  player1Button.addEventListener('click' handleplayer1Button() {
+  player1Button.addEventListener('click' handleplayer1Button(patronQues) {
 
   }) //I need this to do something like choose the question path
   
-  player2Button.addEventListener('click' handleplayer2Button() {
+  player2Button.addEventListener('click' handleplayer2Button(dancerQues) {
 
   }) //I need this to do something like choose the question path
   /*----- functions -----*/

@@ -42,9 +42,25 @@
     font-stretch: semi-expanded;
   }
 
+#playerChoice {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /*this is supposed to put a gap between the buttons*/
+  margin-bottom: 30px;
+
+  @media screen {
+    #playerChoice {
+      flex-direction: column;
+      align-items: center;
+      /*learned about this when I tried looking it up online */
+    }
+  }
+}
+
 .playerChoiceButton {
-    display: inline-block; 
-    /* why isn't this moving them side by side? */
+    /* display: inline-block;  */
+    /* commented out because switching to flex-box so it displays on phones
+    notice it in the ID above*/
     background-color: pink;
     color: white;
     font-size: 30px;
@@ -53,21 +69,3 @@
     /* border: black; */
     cursor: pointer;
   }
-
-  /* #player1 {
-    background-color: blue;
-    color: white;
-    font-size: 30px;
-    padding: 10px 20 px;
-    border: black;
-    cursor: pointer;
-  }
-
-  #player2 {
-    background-color: pink;
-    color: white;
-    font-size: 30px;
-    padding: 10px 20 px;
-    border: black;
-    cursor: pointer;
-  } */
