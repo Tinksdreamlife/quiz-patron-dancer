@@ -15,11 +15,14 @@ let winner; // TBD whether this is a one player at a time
 // game or if players are against each other for knowledge
 // null -> no winner or tie, game is in progress; patron/dancer -> the player the won; 'Tie' - > the game is tied
 let turn; // patron/dancer -> the player whose turn it is
+let questionArray; //be the questions set the player gets whether patron or dancer
 let patronQues; //for an array of patron questions
 let dancerQues; // for an array of dancer questions
-let curQuestionIdx; //for an index of the current question
+let curQuestions = []; //the actual questions the player is on
+let curQuestionIdx = 0; //for an index of the current question
 let correctAnswer; //index of the correct answer in the array
-let playerAnswer; //index of the answer the player has chosen
+let showQuestion; // be available to display the next question
+let playerAnswer = null; //index of the answer the player has chosen
 
   /*----- cached elements  -----*/
   
@@ -30,13 +33,14 @@ let playerAnswer; //index of the answer the player has chosen
 
   /*----- event listeners -----*/
 
-  player1Button.addEventListener('click' handleplayer1Button(patronQues) {
-
+  player1Button.addEventListener('click', function() {
+    handle.player1Button(patronQues); 
   }) //I need this to do something like choose the question path
   
-  player2Button.addEventListener('click' handleplayer2Button(dancerQues) {
+  player2Button.addEventListener('click', function() {
+    handle.player2Button(dancerQues); 
+  })
 
-  }) //I need this to do something like choose the question path
   /*----- functions -----*/
 
    init(); //init's function's purpose is initialize all state, then call render()
@@ -46,40 +50,50 @@ let playerAnswer; //index of the answer the player has chosen
     //How do I write that these are the questions if the player chose
     //player1 which is the patron?
 
+   function handlePlayerChoice(questionArray) {
+    curQuestions = questionArray;
+    curQuestionIdx = 0
+    showQuestion();
+    player1Button.disabled = true;
+    player2Button.disabled = true;
+    //looked up how to disable the buttons after clicking them
+   }
+   
     patronQues = [
       {
         question: 'Patrons should tip dancers.', //Text of question 1'
         answers: ['True', 'False'],
-        correctAnswer: 0 // index of 'Answer 1'
+        correctAnswer: 0, // index of 'Answer 1'
         //How do I add a "response" to give a piece of advice with the answer?
-        playerAnswer: null // this is the property you update when they
+        playerAnswer: null, // this is the property you update when they
                            // click an answer when this is the current question
       },
       {
         question: 'A patron must dress up to enter a club', //Text of question 2
         answers: ['True', 'False'],
-        correctAnswer: 1 // index of 'Another Answer 2'
+        correctAnswer: 1, // index of 'Another Answer 2'
         //How do I add a "response" to give a piece of advice with the answer?
-        playerAnswer: null // this is the property you update when they
+        playerAnswer: null, // this is the property you update when they
                            // click an answer when this is the current question
       },
       {
         question: 'You must be rich to visit a club', //Text of question 3
         answers: ['True', 'False'],
-        correctAnswer: 1 // index of 'Another Answer 3'
+        correctAnswer: 1, // index of 'Another Answer 3'
         //How do I add a "response" to give a piece of advice with the answer?
-        playerAnswer: null // this is the property you update when they
+        playerAnswer: null, // this is the property you update when they
                            // click an answer when this is the current question
       },
       {
         question: 'A dancer WANTS to come home with you.', //Text of question 4
         answers: ['True', 'False'],
-        correctAnswer: 1 // index of 'Another Answer 4'
+        correctAnswer: 1, // index of 'Another Answer 4'
         //How do I add a "response" to give a piece of advice with the answer?
-        playerAnswer: null // this is the property you update when they
+        playerAnswer: null, // this is the property you update when they
                            // click an answer when this is the current question
       },
     ];
+   
     // TODO: Initialize other state variables, e.g.,
     curQuestionIdx = 0;
     ...
