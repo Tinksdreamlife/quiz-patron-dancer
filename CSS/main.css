@@ -40,5 +40,34 @@
     color: rgb(243, 103, 180);
     font-size: 6vmin;
     font-stretch: semi-expanded;
-    
   }
+
+.playerChoiceButton {
+    display: inline-block; 
+    justify-content: center;
+    /* why isn't this moving them side by side? */
+    background-color: pink;
+    color: white;
+    font-size: 30px;
+    padding: 10px 20 px;
+    /* border: black; */
+    cursor: pointer;
+  }
+
+  /* #player1 {
+    background-color: blue;
+    color: white;
+    font-size: 30px;
+    padding: 10px 20 px;
+    border: black;
+    cursor: pointer;
+  }
+
+  #player2 {
+    background-color: pink;
+    color: white;
+    font-size: 30px;
+    padding: 10px 20 px;
+    border: black;
+    cursor: pointer;
+  } */

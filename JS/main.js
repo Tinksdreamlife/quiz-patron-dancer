@@ -31,10 +31,109 @@ let playerAnswer; //index of the answer the player has chosen
   
   /*----- functions -----*/
 
+   init(); //init's function's purpose is initialize all state, then call render()
+
+   function init() {
+
+    //How do I write that these are the questions if the player chose
+    //player1 which is the patron?
+
+    patronQues = [
+      {
+        question: 'Patrons should tip dancers.', //Text of question 1'
+        answers: ['True', 'False'],
+        correctAnswer: 0 // index of 'Answer 1'
+        //How do I add a "response" to give a piece of advice with the answer?
+        playerAnswer: null // this is the property you update when they
+                           // click an answer when this is the current question
+      },
+      {
+        question: 'A patron must dress up to enter a club', //Text of question 2
+        answers: ['True', 'False'],
+        correctAnswer: 1 // index of 'Another Answer 2'
+        //How do I add a "response" to give a piece of advice with the answer?
+        playerAnswer: null // this is the property you update when they
+                           // click an answer when this is the current question
+      },
+      {
+        question: 'You must be rich to visit a club', //Text of question 3
+        answers: ['True', 'False'],
+        correctAnswer: 1 // index of 'Another Answer 3'
+        //How do I add a "response" to give a piece of advice with the answer?
+        playerAnswer: null // this is the property you update when they
+                           // click an answer when this is the current question
+      },
+      {
+        question: 'A dancer WANTS to come home with you.', //Text of question 4
+        answers: ['True', 'False'],
+        correctAnswer: 1 // index of 'Another Answer 4'
+        //How do I add a "response" to give a piece of advice with the answer?
+        playerAnswer: null // this is the property you update when they
+                           // click an answer when this is the current question
+      },
+    ];
+    // TODO: Initialize other state variables, e.g.,
+    curQuestionIdx = 0;
+    ...
+    ...
+    render();  // Always call render after state has been initialized/updated
+  }
+
+  //How do I write that these are the questions if the player chose
+    //player2which is the dancer?
+
+    patronQues = [
+        {
+          question: 'Patrons should tip dancers.', //Text of question 1'
+          answers: ['True', 'False'],
+          correctAnswer: 0 // index of 'Answer 1'
+          //How do I add a "response" to give a piece of advice with the answer?
+          playerAnswer: null // this is the property you update when they
+                             // click an answer when this is the current question
+        },
+        {
+          question: 'A patron must dress up to enter a club', //Text of question 2
+          answers: ['True', 'False'],
+          correctAnswer: 1 // index of 'Another Answer 2'
+          //How do I add a "response" to give a piece of advice with the answer?
+          playerAnswer: null // this is the property you update when they
+                             // click an answer when this is the current question
+        },
+        {
+          question: 'You must be rich to visit a club', //Text of question 3
+          answers: ['True', 'False'],
+          correctAnswer: 1 // index of 'Another Answer 3'
+          //How do I add a "response" to give a piece of advice with the answer?
+          playerAnswer: null // this is the property you update when they
+                             // click an answer when this is the current question
+        },
+        {
+          question: 'A dancer WANTS to come home with you.', //Text of question 4
+          answers: ['True', 'False'],
+          correctAnswer: 1 // index of 'Another Answer 4'
+          //How do I add a "response" to give a piece of advice with the answer?
+          playerAnswer: null // this is the property you update when they
+                             // click an answer when this is the current question
+        },
+      ];
+      // TODO: Initialize other state variables, e.g.,
+      curQuestionIdx = 0;
+      ...
+      ...
+      render();  // Always call render after state has been initialized/updated
+    }
+
+  /*----- Levels for Patron -----*/
+ 
+    //Write code so if answer 1 ques correct = "Stay home"
+    //Two ques correct "Move to stage rail"
+    //Three ques correct "You may ask for a dance"
+    //Four ques correct "Star patron"
 
 
-  /*----- Questions for Patron -----*/
+  /*----- Levels for Dancers -----*/
 
-
-
-  /*----- Questions for Dancers -----*/
+      //Write code so if answer 1 ques correct = "Welcome bby stripper"
+    //Two ques correct "Patrons make it rain on your stages"
+    //Three ques correct "You've achieved loyal fans"
+    //Four ques correct "Hey hey headliner. Vegas is calling!""
