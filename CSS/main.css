@@ -63,9 +63,25 @@
     notice it in the ID above*/
     background-color: pink;
     color: white;
-    font-size: 30px;
-    padding: 10px 20px;
+    width: 35%;
+    font-size: 4vw;
+    padding: 4vw, 6vw;
     margin: 15px;
+    border-radius: 15px;
     /* border: black; */
     cursor: pointer;
   }
+
+  #play-again {
+    background-color: rgb(214, 126, 166);
+    color: white;
+    width: 30%;
+    font-size: 4vw;
+    padding: 4vw, 6vw;
+    margin: 15px;
+    border-radius: 88px;
+    /* border: black; */
+    cursor: pointer;
+  }
+
+  /* learned that vw untils mean viewpoint width - very cool! and vh = viewport height! */
