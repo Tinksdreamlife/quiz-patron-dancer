@@ -102,6 +102,8 @@ let playerAnswer = null; //index of the answer the player has chosen
   const playerChoiceSelection = document.getElementById('playerChoice');
   const quizArea = document.getElementById('quiz-area');
   const header3 = document.querySelector('h3'); 
+
+  const playAgainBtn = document.getElementById('play-again'); //added modeled after connected4 lab
   // added the three const above to try and get sections to work which will replace
   //the choose your player with a new message once the player is chosen
 
@@ -118,6 +120,16 @@ let playerAnswer = null; //index of the answer the player has chosen
   player2Button.addEventListener('click', function() {
     handlePlayerChoice(dancerQues, PLAYERS.player2); 
   });
+  
+  playAgainBtn.addEventListener('click', init); {
+  player1Button.disabled = false;
+  player2Button.disabled = false;
+  playerChoiceSelection.style.display = 'block'; //doesn't work with 'visible'... 'block' tells it to display? (new skill)
+  header3.style.display = 'block';
+  quizArea.innerHTML = ''; //this supposedly helped fix it but don't understand why
+  curQuestionIdx = 0; //to bring it back to the first ques
+  playAgainBtn.style.visibility = 'hidden';
+  }
 
   /*----- functions -----*/
 
@@ -126,12 +138,14 @@ let playerAnswer = null; //index of the answer the player has chosen
    function init() {
       curQuestionIdx = 0;
       curQuestions=[];
+      render();
     //How do I write that these are the questions if the player chose
     //player1 which is the patron?
    }
 
    function handlePlayerChoice(questionArray, playerName) {
     // console.log('handlePlayerChoice');
+
     player = playerName;
     playerChoiceSelection.style.display = 'none'; //this is supposed to hide the buttons
     header3.style.display = 'none'; //supposed to hide the "choose your player" instructions
@@ -178,10 +192,25 @@ let playerAnswer = null; //index of the answer the player has chosen
     } else {
       setTimeout(() => {
       quizArea.innerHTML = `<h3>You finished, ${player}!</h3>` //update this to affect scoring
-    }, 1000);
+    renderControls();
+  }, 1000);
    }
   }
   
+    // Remin dner to self: The purpose of the render() function is to "transfer"/visualize
+  //ALL state to the DOM
+
+  function render(){
+    renderControls;
+  };
+
+  function renderControls() {
+    if (curQuestionIdx < curQuestions.length) {
+      playAgainBtn.style.visibility = 'hidden';
+    } else {
+      playAgainBtn.style.visibility = 'visible';
+    }
+    }; // need to make this show after winner or loser only
 
     // TODO: Initialize other state variables, e.g.,
     // curQuestionIdx = 0;
