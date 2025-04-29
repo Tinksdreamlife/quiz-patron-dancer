@@ -121,15 +121,7 @@ let playerAnswer = null; //index of the answer the player has chosen
     handlePlayerChoice(dancerQues, PLAYERS.player2); 
   });
   
-  playAgainBtn.addEventListener('click', init); {
-  player1Button.disabled = false;
-  player2Button.disabled = false;
-  playerChoiceSelection.style.display = 'block'; //doesn't work with 'visible'... 'block' tells it to display? (new skill)
-  header3.style.display = 'block';
-  quizArea.innerHTML = ''; //this supposedly helped fix it but don't understand why
-  curQuestionIdx = 0; //to bring it back to the first ques
-  playAgainBtn.style.visibility = 'hidden';
-  }
+  playAgainBtn.addEventListener('click', init); 
 
   /*----- functions -----*/
 
@@ -139,6 +131,13 @@ let playerAnswer = null; //index of the answer the player has chosen
       curQuestionIdx = 0;
       curQuestions=[];
       render();
+      player1Button.disabled = false;
+  player2Button.disabled = false;
+  playerChoiceSelection.style.display = 'block'; //doesn't work with 'visible'... 'block' tells it to display? (new skill)
+  header3.style.display = 'block';
+  quizArea.innerHTML = ''; //this supposedly helped fix it but don't understand why
+  curQuestionIdx = 0; //to bring it back to the first ques
+  playAgainBtn.style.visibility = 'hidden';
     //How do I write that these are the questions if the player chose
     //player1 which is the patron?
    }
