@@ -100,7 +100,7 @@ let playerAnswer = null; //index of the answer the player has chosen
   const player2Button = document.getElementById('player2');
   console.log(player1Button);
 
-  const playerChoiceSelection = document.getElementById('player');
+  const playerChoiceSelection = document.getElementById('playerChoice');
   const quizArea = document.getElementById('quiz-area');
   const header3 = document.querySelector('h3'); 
   // added the three const above to try and get sections to work which will replace
@@ -113,11 +113,11 @@ let playerAnswer = null; //index of the answer the player has chosen
   /*----- event listeners -----*/
 
   player1Button.addEventListener('click', function() {
-    handlePlayerChoice(patronQues); 
+    handlePlayerChoice(patronQues, PLAYERS.player1); 
   }); //I need this to do something like choose the question path
   
   player2Button.addEventListener('click', function() {
-    handlePlayerChoice(dancerQues); 
+    handlePlayerChoice(dancerQues, PLAYERS.player2); 
   });
 
   /*----- functions -----*/
@@ -132,13 +132,13 @@ let playerAnswer = null; //index of the answer the player has chosen
    }
 
    function handlePlayerChoice(questionArray, playerName) {
-    console.log('handlePlayerChoice');
+    // console.log('handlePlayerChoice');
     playerChoiceSelection.style.display = 'none'; //this is supposed to hide the buttons
     header3.style.display = 'none'; //supposed to hide the "choose your player" instructions
 
     const message = document.createElement('h3'); //just learned that create Element adds something
     //new to the existing section
-    message.textContent = '${playerName}';
+    message.textContent = `${playerName}`;
     quizArea.appendChild(message); //makes a new element in the existing structure
       
     curQuestions = questionArray;
@@ -146,6 +146,8 @@ let playerAnswer = null; //index of the answer the player has chosen
     player1Button.disabled = true;
     player2Button.disabled = true;
     //looked up how to disable the buttons after clicking them
+    console.log('handlePlayerChoice triggered with', playerName);
+
    };
 
    function showQuestion() {
