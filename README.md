@@ -17,11 +17,14 @@ This is Tink's first JavaScript project. The title is a tongue-in-cheek referenc
 
 # Getting Started
 
-[Click to View Project Planning](your Trello url here)
-
 [Click to Play Connect Four!](your deployment url here)
 
 # Next Steps
 
-- Future enhancement one...
-- Future enhancement two... 
+- Add a tips/suggestions/best practices response to the answers
+
+-Make the questions more complex than true/false
+
+- Idea to let there be a database where dancers and patrons can make suggestions to add to the question base
+
+- Have future games include OF creator versions and porn star versions with guest cameos and videos as bonus prizes to unlock
