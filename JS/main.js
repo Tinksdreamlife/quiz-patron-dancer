@@ -23,8 +23,7 @@ let patronQues =[
     answers: ['True', 'False'],
     correctAnswer: 0, // index of 'Answer 1'
     //How do I add a "response" to give a piece of advice with the answer?
-    playerAnswer: null, // this is the property you update when they
-                       // click an answer when this is the current question
+    playerAnswer: null, 
   },
   {
     question: 'A patron must dress up to enter a club', //Text of question 2
@@ -56,7 +55,7 @@ let dancerQues =[
   {
     question: 'Patrons are required to tip dancers.', //Text of question 1'
     answers: ['True', 'False'],
-    correctAnswer: 0, // index of 'Answer 1'
+    correctAnswer: 1, // index of 'Answer 1'
     //How do I add a "response" to give a piece of advice with the answer?
     playerAnswer: null // this is the property you update when they
                        // click an answer when this is the current question
@@ -133,6 +132,7 @@ let playerAnswer = null; //index of the answer the player has chosen
 
    function handlePlayerChoice(questionArray, playerName) {
     // console.log('handlePlayerChoice');
+    player = playerName;
     playerChoiceSelection.style.display = 'none'; //this is supposed to hide the buttons
     header3.style.display = 'none'; //supposed to hide the "choose your player" instructions
 
@@ -164,11 +164,24 @@ let playerAnswer = null; //index of the answer the player has chosen
    
    function selectAnswer(answerIdx) {
     if (curQuestions[curQuestionIdx].correctAnswer === answerIdx){
-      console.log("Correct!");
+      quizArea.innerHTML += `<p style = "color: purple">Correct!</p>`;
     } else {
-      console.log("Incorrect");
-    }
+      quizArea.innerHTML += `<p style = "color: red">Incorrect!</p>`;
+    } //Th eabove code isn't showing? Why? ...no delay... must add below to pause next quest
+    curQuestionIdx++; 
+
+      if (curQuestionIdx < curQuestions.length) {
+        setTimeout(() => {
+          showQuestion();
+       }, 1000);
+         //should advance to next question
+    } else {
+      setTimeout(() => {
+      quizArea.innerHTML = `<h3>You finished, ${player}!</h3>` //update this to affect scoring
+    }, 1000);
    }
+  }
+  
 
     // TODO: Initialize other state variables, e.g.,
     // curQuestionIdx = 0;
@@ -188,7 +201,7 @@ let playerAnswer = null; //index of the answer the player has chosen
 
   /*----- Levels for Dancers -----*/
 
-      //Write code so if answer 1 ques correct = "Welcome bby stripper"
-    //Two ques correct "Patrons make it rain on your stages"
-    //Three ques correct "You've achieved loyal fans"
-    //Four ques correct "Hey hey headliner. Vegas is calling!""
+    //   Write code so if answer 1 ques correct = "Welcome bby stripper"
+    // Two ques correct "Patrons make it rain on your stages"
+    // Three ques correct "You've achieved loyal fans"
+    // Four ques correct Hey hey headliner. Vegas i
