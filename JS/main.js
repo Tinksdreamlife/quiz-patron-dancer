@@ -14,6 +14,8 @@ let player; // defines whether you get a patron or dancer question
 let winner; // TBD whether this is a one player at a time
 // game or if players are against each other for knowledge
 // null -> no winner or tie, game is in progress; patron/dancer -> the player the won; 'Tie' - > the game is tied
+let correctScore = 0; //added to be able to track scores for levels
+
 let turn; // patron/dancer -> the player whose turn it is
 let handle;
 let questionArray; //be the questions set the player gets whether patron or dancer
@@ -128,16 +130,17 @@ let playerAnswer = null; //index of the answer the player has chosen
    init(); //init's function's purpose is initialize all state, then call render()
 
    function init() {
-      curQuestionIdx = 0;
-      curQuestions=[];
-      render();
-      player1Button.disabled = false;
-  player2Button.disabled = false;
-  playerChoiceSelection.style.display = 'block'; //doesn't work with 'visible'... 'block' tells it to display? (new skill)
-  header3.style.display = 'block';
-  quizArea.innerHTML = ''; //this supposedly helped fix it but don't understand why
-  curQuestionIdx = 0; //to bring it back to the first ques
-  playAgainBtn.style.visibility = 'hidden';
+    curQuestionIdx = 0;
+    curQuestions=[];
+    correctScore = 0; //supposed to help me rset the score
+    render();
+    player1Button.disabled = false;
+    player2Button.disabled = false;
+    playerChoiceSelection.style.display = 'block'; //doesn't work with 'visible'... 'block' tells it to display? (new skill)
+    header3.style.display = 'block';
+    quizArea.innerHTML = ''; //this supposedly helped fix it but don't understand why
+    curQuestionIdx = 0; //to bring it back to the first ques
+    playAgainBtn.style.visibility = 'hidden';
     //How do I write that these are the questions if the player chose
     //player1 which is the patron?
    }
@@ -176,28 +179,70 @@ let playerAnswer = null; //index of the answer the player has chosen
    }
    
    function selectAnswer(answerIdx) {
-    if (curQuestions[curQuestionIdx].correctAnswer === answerIdx){
+    const isCorrectAnswer = curQuestions[curQuestionIdx].correctAnswer === answerIdx;
+
+    if (isCorrectAnswer){
+      correctScore++; //this should track the score I hope!
       quizArea.innerHTML += `<p style = "color: purple">Correct!</p>`;
     } else {
       quizArea.innerHTML += `<p style = "color: red">Incorrect!</p>`;
-    } //Th eabove code isn't showing? Why? ...no delay... must add below to pause next quest
+    }
+
+    // if (curQuestions[curQuestionIdx].correctAnswer === answerIdx){
+    //   quizArea.innerHTML += `<p style = "color: purple">Correct!</p>`;
+    // } else {
+    //   quizArea.innerHTML += `<p style = "color: red">Incorrect!</p>`;
+    // } //Th eabove code isn't showing? Why? ...no delay... must add below to pause next quest
+   
+   
     curQuestionIdx++; 
 
       if (curQuestionIdx < curQuestions.length) {
         setTimeout(() => {
           showQuestion();
-       }, 1000);
+       }, 2000);
          //should advance to next question
     } else {
       setTimeout(() => {
-      quizArea.innerHTML = `<h3>You finished, ${player}!</h3>` //update this to affect scoring
-    renderControls();
-  }, 1000);
+    //   quizArea.innerHTML = `<h3>You finished, ${player}!</h3>` //update this to affect scoring
+    // renderControls(); // replaced with the lines below to call a new function regarding results
+
+    showResults();
+  }, 2000);
    }
   }
   
     // Remin dner to self: The purpose of the render() function is to "transfer"/visualize
   //ALL state to the DOM
+
+  function showResults() {  // newly created to show levels
+    let level = '';
+
+    if (player === PLAYERS.player1) {
+      //Patron levels
+
+      if (correctScore <= 1) {
+        level = 'Stay Home';
+      } else if (correctScore <= 3) {
+        level = 'Cool Patron Status';
+      } else {
+        level = 'VIP Patron';
+      }
+     } else if (player === PLAYERS.player2) { //dancer
+
+      if (correctScore <= 1) {
+        level = 'Rookie Dancer (hang in there)';
+      } else if (correctScore <= 3) {
+        level = 'Stage DIVA';
+      } else {
+        level = 'Star Headliner!';
+     }
+  }
+
+  quizArea.innerHTML =  //to create a final message
+    <h3>Congratulations on finishing ${player}!</h3>
+    <p>You got ${correctScore} correct.</p>
+    <h4>Your level is: ${level}</h4>
 
   function render(){
     renderControls;
