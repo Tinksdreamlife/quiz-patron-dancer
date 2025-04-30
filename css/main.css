@@ -3,7 +3,6 @@
   }
 
   body {
-    /* viewport units: vh (viewport height), vw, vmin (smallest between vh & vw) */
     height: 100vh;
     margin: 10vw;
     font-family: 'Open Sans', sans-serif;
@@ -13,14 +12,8 @@
     align-items: center;
   }
   
-  /* header {
-    font-size: 4vmin;
-    color: darkgrey;
-    letter-spacing: 1vmin;
-  } */
   
   h1 {
-    /* display: flex; */
     color: rgb(172, 27, 107);
     font-size: 12vmin;
     text-align: center;
@@ -46,7 +39,7 @@
 #playerChoice {
   display: flex;
   justify-content: center;
-  gap: 30px; /*this is supposed to put a gap between the buttons*/
+  gap: 30px; 
   margin-bottom: 30px;
 }
 
@@ -54,10 +47,8 @@
     #playerChoice {
       flex-direction: column;
       align-items: center;
-      /*learned about this when I tried looking it up online */
     }
   }
-
 
 #quizArea {
   flex-direction: column;
@@ -67,20 +58,17 @@
 .playerChoiceButton {
     box-sizing: border-box;
     display: inline-flex;
-    /* flex-direction: column; */
     justify-content: center;
-    /* text-align: center; */
     align-items: center;
     background-color: pink;
     color: white;
-    width: max-content; /*allows button to fit content*/
+    width: max-content; 
     font-size: 4vw;
     font-stretch: semi-expanded;
     padding: 4vw 6vw;
-    white-space: nowrap; /*prevents text from wrapping*/
+    white-space: nowrap; 
     margin: 15px;
     border-radius: 15px;
-    /* border: black; */
     cursor: pointer;
   }
 
@@ -92,11 +80,8 @@
     padding: 4vw 6vw;
     margin: 15px;
     border-radius: 88px;
-    /* border: black; */
     cursor: pointer;
   }
-
-  /* learned that vw untils mean viewpoint width - very cool! and vh = viewport height! */
 
   .board {
     color: rgb(191, 98, 149);
@@ -116,7 +101,6 @@
     padding: 4vw 6vw;
     margin: 15px;
     border-radius: 15px;
-    /* border: black; */
     cursor: pointer;
   }
 
@@ -129,6 +113,5 @@
     padding: 4vw 6vw;
     margin: 15px;
     border-radius: 15px;
-    /* border: black; */
     cursor: pointer;
   }
