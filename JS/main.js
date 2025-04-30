@@ -130,6 +130,8 @@ let playerAnswer = null; //index of the answer the player has chosen
    init(); //init's function's purpose is initialize all state, then call render()
 
    function init() {
+    player = null;
+    // playerAnswer = null; //clears the State
     curQuestionIdx = 0;
     curQuestions=[];
     correctScore = 0; //supposed to help me rset the score
@@ -141,8 +143,11 @@ let playerAnswer = null; //index of the answer the player has chosen
     quizArea.innerHTML = ''; //this supposedly helped fix it but don't understand why
     curQuestionIdx = 0; //to bring it back to the first ques
     playAgainBtn.style.visibility = 'hidden';
+    const previousMessage = document.getElementById('player-message');
+    if (previousMessage) previousMessage.remove(); // to get rid of old messages so can play again
     //How do I write that these are the questions if the player chose
     //player1 which is the patron?
+   
    }
 
    function handlePlayerChoice(questionArray, playerName) {
@@ -154,6 +159,7 @@ let playerAnswer = null; //index of the answer the player has chosen
 
     const message = document.createElement('h3'); //just learned that create Element adds something
     //new to the existing section
+    message.id = 'player-message'; //adds an id
     message.textContent = `${playerName}`;
     quizArea.appendChild(message); //makes a new element in the existing structure
       
@@ -171,12 +177,17 @@ let playerAnswer = null; //index of the answer the player has chosen
     // NB: Points to the area I already set up in HTML
     const curQuestion = curQuestions[curQuestionIdx]; 
   
-    quizArea.innerHTML = `<h3>
-        ${curQuestion.question}
+    quizArea.innerHTML = 
+      `<h3>${curQuestion.question}
         <button onclick="selectAnswer(0)">${curQuestion.answers[0]}</button>
         <button onclick="selectAnswer(1)">${curQuestion.answers[1]}</button>
-      </h3>`
-   }
+      </h3>
+      `;
+
+      document.getElementById('answer0').addEventListener(cancelIdleCallback, () => selectAnswer(0));
+      document.getElementById('answer1').addEventListener(cancelIdleCallback, () => selectAnswer(1));
+    }
+    //supposed to fix issue where play isn't initiating
    
    function selectAnswer(answerIdx) {
     const isCorrectAnswer = curQuestions[curQuestionIdx].correctAnswer === answerIdx;
@@ -239,13 +250,21 @@ let playerAnswer = null; //index of the answer the player has chosen
      }
   }
 
-  quizArea.innerHTML =  //to create a final message
-    <h3>Congratulations on finishing ${player}!</h3>
-    <p>You got ${correctScore} correct.</p>
+  quizArea.innerHTML =  `
+    <h3>Congratulations on finishing the quiz, ${player}!</h3>
+    <p>You answered ${correctScore} questions correctly.</p>
     <h4>Your level is: ${level}</h4>
+    `; 
+
+    renderControls();
+};
+    
+    //above is to create a final message...reminder: backtick creates a teplate literal
+    //which allows strings and variables using ${} - something I need to work on
+    //this allows me to assign a string to innerHTML
 
   function render(){
-    renderControls;
+    renderControls();
   };
 
   function renderControls() {
@@ -255,6 +274,8 @@ let playerAnswer = null; //index of the answer the player has chosen
       playAgainBtn.style.visibility = 'visible';
     }
     }; // need to make this show after winner or loser only
+
+
 
     // TODO: Initialize other state variables, e.g.,
     // curQuestionIdx = 0;
@@ -273,8 +294,3 @@ let playerAnswer = null; //index of the answer the player has chosen
 
 
   /*----- Levels for Dancers -----*/
-
-    //   Write code so if answer 1 ques correct = "Welcome bby stripper"
-    // Two ques correct "Patrons make it rain on your stages"
-    // Three ques correct "You've achieved loyal fans"
-    // Four ques correct Hey hey headliner. Vegas i

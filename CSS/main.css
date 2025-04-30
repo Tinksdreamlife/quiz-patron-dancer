@@ -85,3 +85,11 @@
   }
 
   /* learned that vw untils mean viewpoint width - very cool! and vh = viewport height! */
+
+  .board {
+    color: rgb(191, 98, 149);
+    font-size: 4vmin;
+    font-stretch: semi-expanded;
+    justify-content: center;
+    align-items: center;
+  }
