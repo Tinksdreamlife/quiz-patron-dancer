@@ -178,11 +178,13 @@ let playerAnswer = null; //index of the answer the player has chosen
     const curQuestion = curQuestions[curQuestionIdx]; 
   
     quizArea.innerHTML = 
-      `<h3>${curQuestion.question}
+      `<h3>${curQuestion.question}<h3>
+      <div class="answer-buttons"> 
         <button id='answer0' onclick="selectAnswer(0)">${curQuestion.answers[0]}</button>
         <button id='answer1' onclick="selectAnswer(1)">${curQuestion.answers[1]}</button>
-      </h3> 
+      </div> 
       `; //lines above updated per Jan instructions in slack
+      //added div to separate out answer buttons
 
       document.getElementById('answer0').addEventListener(cancelIdleCallback, () => selectAnswer(0));
       document.getElementById('answer1').addEventListener(cancelIdleCallback, () => selectAnswer(1));

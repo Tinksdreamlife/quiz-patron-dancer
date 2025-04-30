@@ -5,7 +5,7 @@
   body {
     /* viewport units: vh (viewport height), vw, vmin (smallest between vh & vw) */
     height: 100vh;
-    margin: 0;
+    margin: 10vw;
     font-family: 'Open Sans', sans-serif;
     display: flex;
     flex-direction: column;
@@ -20,6 +20,7 @@
   } */
   
   h1 {
+    /* display: flex; */
     color: rgb(172, 27, 107);
     font-size: 12vmin;
     text-align: center;
@@ -29,7 +30,7 @@
 
   h2 {
     color: rgb(125, 47, 90);
-    font-size: 6vmin;
+    font-size: 4vw;
     padding: 5px;
     margin: 0px;
     border-top-style: double;
@@ -47,15 +48,16 @@
   justify-content: center;
   gap: 30px; /*this is supposed to put a gap between the buttons*/
   margin-bottom: 30px;
+}
 
-  @media screen {
+  @media screen and (max-width: 768px) {
     #playerChoice {
       flex-direction: column;
       align-items: center;
       /*learned about this when I tried looking it up online */
     }
   }
-}
+
 
 #quizArea {
   flex-direction: column;
@@ -63,14 +65,19 @@
 }
 
 .playerChoiceButton {
-    /* display: inline-block;  */
-    /* commented out because switching to flex-box so it displays on phones
-    notice it in the ID above*/
+    box-sizing: border-box;
+    display: inline-flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    /* text-align: center; */
+    align-items: center;
     background-color: pink;
     color: white;
-    width: 35%;
+    width: max-content; /*allows button to fit content*/
     font-size: 4vw;
-    padding: 4vw, 6vw;
+    font-stretch: semi-expanded;
+    padding: 4vw 6vw;
+    white-space: nowrap; /*prevents text from wrapping*/
     margin: 15px;
     border-radius: 15px;
     /* border: black; */
@@ -82,7 +89,7 @@
     color: white;
     width: 30%;
     font-size: 4vw;
-    padding: 4vw, 6vw;
+    padding: 4vw 6vw;
     margin: 15px;
     border-radius: 88px;
     /* border: black; */
@@ -93,7 +100,8 @@
 
   .board {
     color: rgb(191, 98, 149);
-    font-size: 4vmin;
+    text-align: center;
+    font-size: 4vw;
     font-stretch: semi-expanded;
     justify-content: center;
     align-items: center;
@@ -103,9 +111,9 @@
     background-color: #a270d1;
     color: white;
     width: 20%;
-    font-size: 4vw;
+    font-size: 3vw;
     text-align: center;
-    padding: 4vw, 6vw;
+    padding: 4vw 6vw;
     margin: 15px;
     border-radius: 15px;
     /* border: black; */
@@ -116,9 +124,9 @@
     background-color: #a270d1;
     color: white;
     width: 20%;
-    font-size: 4vw;
+    font-size: 3vw;
     text-align: center;
-    padding: 4vw, 6vw;
+    padding: 4vw 6vw;
     margin: 15px;
     border-radius: 15px;
     /* border: black; */
