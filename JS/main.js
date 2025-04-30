@@ -179,10 +179,10 @@ let playerAnswer = null; //index of the answer the player has chosen
   
     quizArea.innerHTML = 
       `<h3>${curQuestion.question}
-        <button onclick="selectAnswer(0)">${curQuestion.answers[0]}</button>
-        <button onclick="selectAnswer(1)">${curQuestion.answers[1]}</button>
-      </h3>
-      `;
+        <button id='answer0' onclick="selectAnswer(0)">${curQuestion.answers[0]}</button>
+        <button id='answer1' onclick="selectAnswer(1)">${curQuestion.answers[1]}</button>
+      </h3> 
+      `; //lines above updated per Jan instructions in slack
 
       document.getElementById('answer0').addEventListener(cancelIdleCallback, () => selectAnswer(0));
       document.getElementById('answer1').addEventListener(cancelIdleCallback, () => selectAnswer(1));
@@ -194,9 +194,9 @@ let playerAnswer = null; //index of the answer the player has chosen
 
     if (isCorrectAnswer){
       correctScore++; //this should track the score I hope!
-      quizArea.innerHTML += `<p style = "color: purple">Correct!</p>`;
+      quizArea.innerHTML += `<p style = "color: purple", "text-align: center">Correct!</p>`;
     } else {
-      quizArea.innerHTML += `<p style = "color: red">Incorrect!</p>`;
+      quizArea.innerHTML += `<p style = "color: red", "text-align: center">Incorrect!</p>`;
     }
 
     // if (curQuestions[curQuestionIdx].correctAnswer === answerIdx){
