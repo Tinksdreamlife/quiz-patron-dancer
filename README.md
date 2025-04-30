@@ -6,9 +6,6 @@ This is Tink's first JavaScript project. The title is a tongue-in-cheek referenc
 
 ![Initial Game Interface](<Image 4-29-25 at 3.45 PM.JPG>)
 
-
-<img src="url to your image on imgur" alt="acreenshot">
-
 # Technologies Used
 
 - JavaScript
