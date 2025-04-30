@@ -17,7 +17,7 @@ This is Tink's first JavaScript project. The title is a tongue-in-cheek referenc
 
 # Getting Started
 
-[Click to Play Connect Four!](your deployment url here)
+[Click to Play X-Rated and Educated!](https://tinksdreamlife.github.io/quiz-patron-dancer/)
 
 # Next Steps
 
