@@ -175,13 +175,17 @@ function showQuestion() {
 
 
 function selectAnswer(answerIdx) {
-  const isCorrectAnswer = curQuestions[curQuestionIdx].correctAnswer === answerIdx;
+  // const isCorrectAnswer = curQuestions[curQuestionIdx].correctAnswer === answerIdx;
+
+  const curQuestion = curQuestions[curQuestionIdx];
+  const chosenAnswer = curQuestion.answers[answerIdx]; //get the current answer
+  const isCorrectAnswer =curQuestion.correctAnswer === answerIdx
 
   if (isCorrectAnswer) {
     correctScore++;
-    quizArea.innerHTML += `<p style = "color: purple", "text-align: center">Correct!</p>`;
+    quizArea.innerHTML += `<p style = "color: purple", "text-align: center">You chose "${chosenAnswer}, and that is CORRECT!</p>`;
   } else {
-    quizArea.innerHTML += `<p style = "color: red", "text-align: center">Incorrect!</p>`;
+    quizArea.innerHTML += `<p style = "color: red", "text-align: center">You chose "${chosenAnswer}, and that is INCORRECT!</p>`;
   }
 
   curQuestionIdx++;
