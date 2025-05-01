@@ -48,6 +48,22 @@ let patronQues = [
     playerAnswer: null, // this is the property you update when they
     // click an answer when this is the current question
   },
+  {
+    question: 'If sitting at the stage, you should tip every dancer.', //Text of question 4
+    answers: ['True', 'False'],
+    correctAnswer: 0, // index of 'Another Answer 5'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null, // this is the property you update when they
+    // click an answer when this is the current question
+  },
+  {
+    question: 'Patrons may take pictures of dancers on the stage.', //Text of question 4
+    answers: ['True', 'False'],
+    correctAnswer: 1, // index of 'Another Answer 6'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null, // this is the property you update when they
+    // click an answer when this is the current question
+  },
 ];
 
 let dancerQues = [
@@ -79,6 +95,22 @@ let dancerQues = [
     question: 'There is not much room for professional growth as a dancer.', //Text of question 4
     answers: ['True', 'False'],
     correctAnswer: 1, // index of 'Another Answer 4'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null // this is the property you update when they
+    // click an answer when this is the current question
+  },
+  {
+    question: 'Patrons will always spend more based on looks rather than a connection.', //Text of question 4
+    answers: ['True', 'False'],
+    correctAnswer: 1, // index of 'Another Answer 5'
+    //How do I add a "response" to give a piece of advice with the answer?
+    playerAnswer: null // this is the property you update when they
+    // click an answer when this is the current question
+  },
+  {
+    question: 'Patrons may be interested in plus size dancers.', //Text of question 4
+    answers: ['True', 'False'],
+    correctAnswer: 0, // index of 'Another Answer 6'
     //How do I add a "response" to give a piece of advice with the answer?
     playerAnswer: null // this is the property you update when they
     // click an answer when this is the current question
@@ -210,7 +242,7 @@ function showResults() {
 
     if (correctScore <= 1) {
       level = 'Stay Home';
-    } else if (correctScore <= 3) {
+    } else if (correctScore <= 4) {
       level = 'Cool Patron Status';
     } else {
       level = 'VIP Patron';
@@ -219,7 +251,7 @@ function showResults() {
 
     if (correctScore <= 1) {
       level = 'Rookie Dancer (hang in there)';
-    } else if (correctScore <= 3) {
+    } else if (correctScore <= 4) {
       level = 'Stage DIVA';
     } else {
       level = 'Star Headliner!';
