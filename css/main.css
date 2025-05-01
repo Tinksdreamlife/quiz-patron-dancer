@@ -1,54 +1,54 @@
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
 
-  body {
-    height: 100vh;
-    margin: 10vw;
-    font-family: 'Open Sans', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  
-  h1 {
-    color: rgb(172, 27, 107);
-    font-size: 12vmin;
-    text-align: center;
-    padding: 0px;
-    margin: 0px;
-  }
+body {
+  height: 100vh;
+  margin: 10vw;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  h2 {
-    color: rgb(125, 47, 90);
-    font-size: 4vw;
-    padding: 5px;
-    margin: 0px;
-    border-top-style: double;
-    border-bottom-style: double;
-  }
 
-  h3 {
-    color: rgb(243, 103, 180);
-    font-size: 6vmin;
-    font-stretch: semi-expanded;
-  }
+h1 {
+  color: rgb(172, 27, 107);
+  font-size: 12vmin;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+
+h2 {
+  color: rgb(125, 47, 90);
+  font-size: 4vw;
+  padding: 5px;
+  margin: 0px;
+  border-top-style: double;
+  border-bottom-style: double;
+}
+
+h3 {
+  color: rgb(243, 103, 180);
+  font-size: 6vmin;
+  font-stretch: semi-expanded;
+}
 
 #playerChoice {
   display: flex;
   justify-content: center;
-  gap: 30px; 
+  gap: 30px;
   margin-bottom: 30px;
 }
 
-  @media screen and (max-width: 768px) {
-    #playerChoice {
-      flex-direction: column;
-      align-items: center;
-    }
+@media screen and (max-width: 768px) {
+  #playerChoice {
+    flex-direction: column;
+    align-items: center;
   }
+}
 
 #quizArea {
   flex-direction: column;
@@ -56,62 +56,70 @@
 }
 
 .playerChoiceButton {
-    box-sizing: border-box;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background-color: pink;
-    color: white;
-    width: max-content; 
-    font-size: 4vw;
-    font-stretch: semi-expanded;
-    padding: 4vw 6vw;
-    white-space: nowrap; 
-    margin: 15px;
-    border-radius: 15px;
-    cursor: pointer;
-  }
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  color: white;
+  width: max-content;
+  font-size: 4vw;
+  font-stretch: semi-expanded;
+  padding: 4vw 6vw;
+  white-space: nowrap;
+  margin: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+}
 
-  #play-again {
-    background-color: rgb(214, 126, 166);
-    color: white;
-    width: 30%;
-    font-size: 4vw;
-    padding: 4vw 6vw;
-    margin: 15px;
-    border-radius: 88px;
-    cursor: pointer;
-  }
+#play-again {
+  background-color: rgb(214, 126, 166);
+  color: white;
+  width: 30%;
+  font-size: 4vw;
+  padding: 4vw 6vw;
+  margin: 15px;
+  border-radius: 88px;
+  cursor: pointer;
+}
 
-  .board {
-    color: rgb(191, 98, 149);
-    text-align: center;
-    font-size: 4vw;
-    font-stretch: semi-expanded;
-    justify-content: center;
-    align-items: center;
-  }
+.board {
+  color: rgb(191, 98, 149);
+  text-align: center;
+  font-size: 4vw;
+  font-stretch: semi-expanded;
+  justify-content: center;
+  align-items: center;
+}
 
-  #answer0 {
-    background-color: #a270d1;
-    color: white;
-    width: 20%;
-    font-size: 3vw;
-    text-align: center;
-    padding: 4vw 6vw;
-    margin: 15px;
-    border-radius: 15px;
-    cursor: pointer;
-  }
+#answer0 {
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a270d1;
+  color: white;
+  width: 20%;
+  font-size: 3vw;
+  text-align: center;
+  padding: 4vw 6vw;
+  margin: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+}
 
-  #answer1 {
-    background-color: #a270d1;
-    color: white;
-    width: 20%;
-    font-size: 3vw;
-    text-align: center;
-    padding: 4vw 6vw;
-    margin: 15px;
-    border-radius: 15px;
-    cursor: pointer;
-  }
+#answer1 {
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center; 
+  background-color: #a270d1;
+  color: white;
+  width: 20%;
+  font-size: 3vw;
+  text-align: center;
+  padding: 4vw 6vw;
+  margin: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+}
